@@ -12,4 +12,7 @@
     "git.pruneOnFetch": true,
     "git.rebaseWhenSync": true,
     "python.analysis.typeCheckingMode": "strict",
+    "files.exclude": {
+        ".venv/**": true
+    }
 }
