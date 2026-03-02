@@ -11,7 +11,7 @@
     "git.ignoreRebaseWarning": true,
     "git.pruneOnFetch": true,
     "git.rebaseWhenSync": true,
-    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.typeCheckingMode": "off",
     "files.exclude": {
         ".venv/**": true
     },
