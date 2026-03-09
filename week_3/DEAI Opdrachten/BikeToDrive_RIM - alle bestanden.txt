@@ -109,7 +109,7 @@ CREATE TABLE Accessoireverkoop_Monteur (
 	filiaal INT NOT NULL,
 
 	PRIMARY KEY(monteurnr)
-	FOREIGN KEY(filiaal) REFERENCES Accessoire_Inkoop_Filiaal(filiaalnr)
+	FOREIGN KEY(filiaal) REFERENCES Accessoireverkoop_filiaal(filiaalnr)
 );
 
 CREATE TABLE Accessoireverkoop_Accessoire (
@@ -121,7 +121,7 @@ CREATE TABLE Accessoireverkoop_Accessoire (
 	leverancier INT NOT NULL,
 
 	PRIMARY KEY(accessoirenr),
-	FOREIGN KEY(leverancier) REFERENCES Accessoire_Inkoop_Leverancier(leveranciernr)
+	FOREIGN KEY(leverancier) REFERENCES Accessoireverkoop_Leverancier(leveranciernr)
 );
 
 CREATE TABLE Accessoireverkoop (
