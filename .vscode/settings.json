@@ -13,7 +13,8 @@
     "git.rebaseWhenSync": true,
     "python.analysis.typeCheckingMode": "off",
     "files.exclude": {
-        ".venv/**": true
+        ".venv/**": true,
+        "**/*.vpp.*": true
     },
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 3000
