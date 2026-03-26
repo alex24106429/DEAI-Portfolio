@@ -1,0 +1,13 @@
+Variabele,Betekenis
+ID,"Uniek nummer per huis, te vergelijken met een primaire-sleutelkolom"
+SalePrice,Verkoopprijs van het huis (in dollars: USD)
+Garage,Geeft weer of het huis wel/geen garage bevat
+Overall Qual,Algemene kwaliteit van materialen en afwerking van het huis
+Gr Liv Area,Woonoppervlak boven de grond (square feet)
+Total Bsmt SF,Totale oppervlakte van de kelder
+Lot Area,Grootte van het perceel (square feet)
+Year Built,Bouwjaar van het huis
+Full Bath,Aantal volledige badkamers
+Bedroom AbvGr,Aantal slaapkamers boven de grond
+Neighborhood,Wijk binnen Ames
+House Style,"Type huis (bijv. 1-verdieping, 2-verdiepingen)"
