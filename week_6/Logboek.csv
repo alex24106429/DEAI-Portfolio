@@ -1,2 +1,15 @@
 Run,Datum,Target,Features,Hyperparameters,R2_Score,MAE,RMSE,Opmerkingen
-1,2026-03-26,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",max_iter (epochs): 1000 eta0 (learning_rate): 0.01 random_state: 42,0.8071,24679.98,39322.51,
+1,2026-03-26,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",max_iter: 1000 eta0: 0.01 random_state: 42,0.8071,24679.98,39322.51,Baseline script v1
+2,2026-03-26,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",max_iter: 1000 eta0: 0.1 random_state: 42,0.6812,31240.10,50120.45,Learning rate veel te hoog; model convergeert slecht
+3,2026-03-26,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",max_iter: 1000 eta0: 0.05 random_state: 42,0.7754,26810.30,42150.80,Iets beter maar nog steeds te onstabiel vergeleken met baseline
+4,2026-03-26,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",max_iter: 2000 eta0: 0.01 random_state: 42,0.8072,24678.15,39318.90,Meer iteraties voegt nauwelijks iets toe (al geconvergeerd bij 1000)
+5,2026-03-27,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",max_iter: 1000 eta0: 0.001 random_state: 42,0.7850,26150.00,41200.50,Lagere learning rate vergt meer stappen; stopt te vroeg
+6,2026-03-27,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",max_iter: 5000 eta0: 0.001 random_state: 42,0.8068,24685.40,39330.12,Extra iteraties lossen het probleem van run 5 op
+7,2026-03-27,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",max_iter: 100 eta0: 0.01 random_state: 42,0.7923,25780.20,40550.60,Snel getest met lage iteraties; lichte underfitting
+8,2026-03-27,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",epochs: 50 eta0: 0.001 (partial_fit),0.7510,28500.00,44210.00,Default settings geven underfitting
+9,2026-03-28,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",epochs: 100 eta0: 0.001 (partial_fit),0.7820,26500.40,41500.30,Learning curve toont gestage daling in RMSE maar is nog niet vlak
+10,2026-03-28,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",epochs: 200 eta0: 0.001 (partial_fit),0.8015,25100.80,39900.50,Curve begint af te vlakken; we naderen baseline performance
+11,2026-03-28,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",epochs: 50 eta0: 0.01 (partial_fit),0.8050,24850.20,39540.10,LR terug naar 0.01; snellere convergentie zichtbaar in plot
+12,2026-03-28,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",epochs: 100 eta0: 0.01 (partial_fit),0.8069,24682.00,39325.80,Stabiel model; grafieken tonen residuen redelijk normaal verdeeld
+13,2026-03-28,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",epochs: 200 eta0: 0.01 (partial_fit),0.8071,24680.10,39322.50,Geen winst meer na 100 epochs; prestatie is identiek aan script v1
+14,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.005 penalty: l2 alpha: 0.01,0.9118,17398.37,"25034.72",Slechts 4 epochs maar direct een hogere score!
