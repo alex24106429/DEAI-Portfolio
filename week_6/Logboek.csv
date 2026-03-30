@@ -12,5 +12,6 @@ Run,Datum,Target,Features,Hyperparameters,R2_Score,MAE,RMSE,Opmerkingen
 11,2026-03-28,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",epochs: 50 eta0: 0.01 (partial_fit),0.8050,24850.20,39540.10,LR terug naar 0.01; snellere convergentie zichtbaar in plot
 12,2026-03-28,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",epochs: 100 eta0: 0.01 (partial_fit),0.8069,24682.00,39325.80,Stabiel model; grafieken tonen residuen redelijk normaal verdeeld
 13,2026-03-28,SalePrice,"'Overall Qual', 'Gr Liv Area', 'Neighborhood'",epochs: 200 eta0: 0.01 (partial_fit),0.8071,24680.10,39322.50,Geen winst meer na 100 epochs; prestatie is identiek aan script v1
-14,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.005 penalty: l2 alpha: 0.01,0.9118,17398.37,"25034.72",Slechts 4 epochs maar direct een hogere score!
-15,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.005 penalty: l2 alpha: 0.01,0.9207,"16459.48","22345.96",Seed verandert
+14,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.005 penalty: l2 alpha: 0.01,0.9118,17398.37,25034.72,Slechts 4 epochs maar direct een hogere score!
+15,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.005 penalty: l2 alpha: 0.01,0.9207,16459.48,22345.96,Seed verandert
+16,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.005 penalty: l2 alpha: 0.01,0.9208,16936.61,22159.84,Seed verandert
