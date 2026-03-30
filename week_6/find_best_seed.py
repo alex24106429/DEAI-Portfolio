@@ -27,7 +27,7 @@ def evaluate_seed(seed, X, y):
         loss='squared_error',
         penalty='l2',
         alpha=0.01,
-        eta0=0.005,
+        eta0=0.006,
         max_iter=4,  # Zelfde als 4 epochs
         tol=None,    # Voorkomt early-stopping, dwingt exact 4 epochs af
         random_state=seed

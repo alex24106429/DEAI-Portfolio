@@ -15,3 +15,4 @@ Run,Datum,Target,Features,Hyperparameters,R2_Score,MAE,RMSE,Opmerkingen
 14,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.005 penalty: l2 alpha: 0.01,0.9118,17398.37,25034.72,Slechts 4 epochs maar direct een hogere score!
 15,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.005 penalty: l2 alpha: 0.01,0.9207,16459.48,22345.96,Seed verandert
 16,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.005 penalty: l2 alpha: 0.01,0.9208,16936.61,22159.84,Seed verandert
+,2026-03-30,Log(SalePrice),"8 features (incl. Bsmt, Year, Baths enz.)",epochs: 4 eta0: 0.006 penalty: l2 alpha: 0.01,0.93,16886.48,22611.57,+= 0.001 learning rate
