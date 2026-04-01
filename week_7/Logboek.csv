@@ -1,1 +1,2 @@
-Run,Datum,Target,Features,Hyperparameters,R2_Score,MAE,RMSE,Opmerkingen
+Run,Datum,Target,Features,Hyperparameters,Accuracy,f1-score geen,f1-score  wel,Opmerkingen
+1,1-04-2026,Garage,"Year Built, Overall Qual, Neighborhood","Criteron = 'gini', max_depth = 5",0.9283,0.19,0.96,"Model 1 gebouwt eerste training behaalt, slecht in geen garage voorspellen"
