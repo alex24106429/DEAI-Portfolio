@@ -3,6 +3,7 @@
         "ms-python.python",
         "ms-toolsai.jupyter",
         "ms-python.autopep8",
-        "janisdd.vscode-edit-csv"
+        "repreng.csv",
+        "qwtel.sqlite-viewer"
     ]
 }
