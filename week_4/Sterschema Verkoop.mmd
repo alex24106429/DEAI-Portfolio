@@ -1,0 +1,63 @@
+erDiagram
+    FEIT_VERKOOP {
+        int verkoop_id PK
+        int datum_id FK
+        int klantnr FK
+        int monteurnr FK "Fungeert hier als verkoper"
+        int fietsnr FK "Optioneel"
+        int accessoirenummer FK "Optioneel"
+        decimal verkoopprijs "Meetwaarde"
+        decimal winst "Meetwaarde"
+        decimal omzet "Getransporteerde meetwaarde vanuit Fiets-SDM"
+    }
+
+    DIM_DATUM {
+        int datum_id PK
+        int dag
+        int maand
+        int jaar
+        string maandnaam
+    }
+
+    DIM_KLANT {
+        int klantnr PK
+        string naam
+        string adres
+        string woonplaats
+        string geslacht
+        string leeftijdgroep "Afgeleide dimensie"
+        date geboortendatum
+    }
+
+    DIM_MONTEUR {
+        int monteurnr PK
+        string naam
+        string woonplaats
+        string salarisgroep "Afgeleide dimensie"
+        decimal uurloon
+        int filiaalnr
+        string filiaalnaam "Horizontaal samengevoegd"
+        string adres
+        string provintie
+    }
+
+    DIM_FIETS {
+        int fietsnr PK
+        string soort
+        string merk
+        string type
+        string kleur
+        string prijsklasse
+    }
+
+    DIM_ACCESSOIRE {
+        int accessoirenummer PK
+        string naam
+        string soort
+    }
+
+    FEIT_VERKOOP }|--|| DIM_DATUM : "Vond plaats op"
+    FEIT_VERKOOP }|--|| DIM_KLANT : "Gekocht door"
+    FEIT_VERKOOP }|--|| DIM_MONTEUR : "Verkocht door"
+    FEIT_VERKOOP }o--o| DIM_FIETS : "Bevat"
+    FEIT_VERKOOP }o--o| DIM_ACCESSOIRE : "Bevat"

@@ -1,0 +1,48 @@
+erDiagram
+    FEIT_INKOOP {
+        int inkoop_id PK
+        int maand_id FK "Verwijst naar DIM_MAAND"
+        int fietsnr FK "Optioneel"
+        int accessoirenummer FK "Optioneel"
+        int aantal "Meetwaarde"
+        decimal totale_inkoopkosten "Afgeleide meetwaarde (aantal * inkoopprijs)"
+    }
+
+    DIM_MAAND {
+        int maand_id PK
+        int jaar
+        int maand
+        string maandnaam
+    }
+
+    DIM_FIETS {
+        int fietsnr PK
+        string soort
+        string merk
+        string type
+        string kleur
+        string prijsklasse "Afgeleide dimensie"
+        decimal inkoopprijs
+        decimal standaardprijs
+        int fabrikantnr
+        string fabrikant_naam
+        string fabrikant_adres
+        string fabrikant_plaats
+    }
+
+    DIM_ACCESSOIRE {
+        int accessoirenummer PK
+        string naam
+        string soort
+        decimal inkoopprijs
+        decimal standaardprijs
+        int leveranciernr
+        string leveranciernaam
+        string adres
+        string woonplaats
+        string attribute
+    }
+
+    FEIT_INKOOP }|--|| DIM_MAAND : "Geregistreerd in"
+    FEIT_INKOOP }o--o| DIM_FIETS : "Betreft fiets"
+    FEIT_INKOOP }o--o| DIM_ACCESSOIRE : "Betreft accessoire"

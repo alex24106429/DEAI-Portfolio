@@ -1,0 +1,42 @@
+erDiagram
+    FEIT_ONDERHOUD {
+        int onderhoud_id PK
+        int datum_id FK
+        int fietsnr FK
+        int monteurnr FK
+        time starttijd "Degenerate dimension"
+        time eindtijd "Degenerate dimension"
+        decimal duur "Meetwaarde"
+    }
+
+    DIM_DATUM {
+        int datum_id PK
+        int dag
+        int maand
+        int jaar
+        string maandnaam
+    }
+
+    DIM_FIETS {
+        int fietsnr PK
+        string soort
+        string merk
+        string type
+        string kleur
+        int fabrikantnr
+        string fabrikantnaam
+    }
+
+    DIM_MONTEUR {
+        int monteurnr PK
+        string naam
+        string woonplaats
+        string salarisgroep
+        decimal uurloon
+        int filiaalnr
+        string filiaalnaam
+    }
+
+    FEIT_ONDERHOUD }|--|| DIM_DATUM : "Uitgevoerd op"
+    FEIT_ONDERHOUD }|--|| DIM_FIETS : "Aan fiets"
+    FEIT_ONDERHOUD }|--|| DIM_MONTEUR : "Door monteur"
