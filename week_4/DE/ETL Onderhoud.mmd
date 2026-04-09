@@ -1,0 +1,32 @@
+graph TD
+    subgraph E [Extract: Bron tabellen sdm.db]
+        OB[Onderhoud basis]
+        OM[Onderhoud_Monteur]
+        OF[Onderhoud_Fiets]
+    end
+
+    subgraph T [Transform: Data Transformaties]
+        T_OND[Hernoem kolommen: onderhoudnr -> id]
+        T_TIJD[Parse starttijd & eindtijd]
+        CALC_DUUR[Bereken: Duur in uren]
+        GEN_DID[Converteer datum -> datum_id]
+    end
+
+    subgraph L [Load: DWH fietsen_dwh.db]
+        D_DAT2[(DIM_DATUM)]
+        D_FIETS2[(DIM_FIETS)]
+        D_MONT2[(DIM_MONTEUR)]
+        F_OND{FEIT_ONDERHOUD}
+    end
+
+    %% Flow Feit
+    OB --> T_OND
+    T_OND --> GEN_DID
+    GEN_DID --> T_TIJD
+    T_TIJD --> CALC_DUUR
+    CALC_DUUR --> F_OND
+
+    %% De dimensies worden hier hergebruikt, we tonen de links naar het feit
+    D_DAT2 -.-> F_OND
+    D_FIETS2 -.-> F_OND
+    D_MONT2 -.-> F_OND

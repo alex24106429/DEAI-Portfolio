@@ -1,0 +1,51 @@
+graph TD
+    subgraph E [Extract: Bron tabellen sdm.db]
+        AV[Accessoireverkoop tabellen]
+        FV[Fietsverkoop tabellen]
+        KB[Klant tabellen]
+        MB[Monteur & Filiaal tabellen]
+        FB[Fiets & Fabrikant tabellen]
+        AB[Accessoire & Lev. tabellen]
+    end
+
+    subgraph T [Transform: Data Transformaties]
+        UNION_V[Union: Fietsverkopen + Acc.verkopen]
+        CALC_WINST[Bereken: Kostprijs, Omzet, Winst]
+        GEN_VID[Genereer: verkoop_id, datum_id]
+
+        T_KLANT[Klant: Bereken Leeftijd + Groep]
+        T_MONT[Monteur: Join Filiaal + Salarisgroep]
+        T_FIETS[Fiets: Join Fabrikant + Prijsklasse]
+        T_ACC[Acc: Join Leverancier]
+        T_DAT[Datum: Genereer 2020-2025 kalender]
+    end
+
+    subgraph L [Load: DWH fietsen_dwh.db]
+        D_KLANT[(DIM_KLANT)]
+        D_MONT[(DIM_MONTEUR)]
+        D_FIETS[(DIM_FIETS)]
+        D_ACC[(DIM_ACCESSOIRE)]
+        D_DAT[(DIM_DATUM)]
+        F_VERKOOP{FEIT_VERKOOP}
+    end
+
+    %% Flow Feit
+    AV --> UNION_V
+    FV --> UNION_V
+    UNION_V --> GEN_VID
+    GEN_VID --> CALC_WINST
+    CALC_WINST --> F_VERKOOP
+
+    %% Flow Dimensies
+    KB --> T_KLANT --> D_KLANT
+    MB --> T_MONT --> D_MONT
+    FB --> T_FIETS --> D_FIETS
+    AB --> T_ACC --> D_ACC
+    T_DAT --> D_DAT
+
+    %% Relaties DWH
+    D_KLANT -.-> F_VERKOOP
+    D_MONT -.-> F_VERKOOP
+    D_FIETS -.-> F_VERKOOP
+    D_ACC -.-> F_VERKOOP
+    D_DAT -.-> F_VERKOOP

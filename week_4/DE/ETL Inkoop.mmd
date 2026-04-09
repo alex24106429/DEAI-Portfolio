@@ -1,0 +1,34 @@
+graph TD
+    subgraph E [Extract: Bron tabellen sdm.db]
+        AI[Accessoire_Inkoop]
+        FI[Fiets_Inkoop]
+    end
+
+    subgraph T [Transform: Data Transformaties]
+        UNION_I[Union: Fietsinkoop + Acc.inkoop]
+        GEN_MAAND[Genereer: maand_id YYYYMM]
+        JOIN_PRIJS[Lookup: Inkoopprijs Fiets/Acc]
+        CALC_KOSTEN[Bereken: totale_inkoopkosten]
+        GEN_IID[Genereer: inkoop_id]
+    end
+
+    subgraph L [Load: DWH fietsen_dwh.db]
+        D_DAT3[(DIM_DATUM)]
+        D_FIETS3[(DIM_FIETS)]
+        D_ACC3[(DIM_ACCESSOIRE)]
+        F_INKOOP{FEIT_INKOOP}
+    end
+
+    %% Flow Feit
+    AI --> UNION_I
+    FI --> UNION_I
+    UNION_I --> GEN_MAAND
+    GEN_MAAND --> JOIN_PRIJS
+    JOIN_PRIJS --> CALC_KOSTEN
+    CALC_KOSTEN --> GEN_IID
+    GEN_IID --> F_INKOOP
+
+    %% Relaties met dimensies (Dimensies zelf zijn al getransformeerd in de Verkoop flow)
+    D_FIETS3 -.-> F_INKOOP
+    D_ACC3 -.-> F_INKOOP
+    D_DAT3 -.->|maand_id| F_INKOOP
