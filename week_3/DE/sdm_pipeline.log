@@ -1,0 +1,66 @@
+2026-04-09 14:10:22.236 | INFO     | __main__:<module>:14 - BikeToDrive_1_Accessoireverkoop.db: ['Accessoire_Verkoop', 'Monteur', 'Leverancier', 'Accessoire', 'Filiaal', 'Klant']
+2026-04-09 14:10:22.240 | INFO     | __main__:<module>:14 - BikeToDrive_2_Fietsverkoop.db: ['Fiets_Verkoop', 'Fiets', 'Monteur', 'Fabrikant', 'Filiaal', 'Klant']
+2026-04-09 14:10:22.242 | INFO     | __main__:<module>:14 - BikeToDrive_3_Onderhoud.db: ['Onderhoud', 'Fiets', 'Monteur', 'Fabrikant', 'Filiaal']
+2026-04-09 14:10:22.244 | INFO     | __main__:<module>:14 - BikeToDrive_4_Accessoire_Inkoop.db: ['Accessoire_Inkoop', 'Accessoire', 'Leverancier']
+2026-04-09 14:10:22.245 | INFO     | __main__:<module>:14 - BikeToDrive_5_Fiets_Inkoop.db: ['Fiets_Inkoop', 'Fiets', 'Fabrikant']
+2026-04-09 14:10:22.254 | INFO     | __main__:<module>:4 - --- Aantal unieke ID's in gedeelde tabellen over de databases ---
+2026-04-09 14:10:22.258 | INFO     | __main__:<module>:17 - Klant: 26 unique IDs gevonden
+2026-04-09 14:10:22.262 | INFO     | __main__:<module>:17 - Monteur: 15 unique IDs gevonden
+2026-04-09 14:10:22.267 | INFO     | __main__:<module>:17 - Filiaal: 5 unique IDs gevonden
+2026-04-09 14:10:22.271 | INFO     | __main__:<module>:17 - Leverancier: 5 unique IDs gevonden
+2026-04-09 14:10:22.274 | INFO     | __main__:<module>:17 - Accessoire: 13 unique IDs gevonden
+2026-04-09 14:10:22.279 | INFO     | __main__:<module>:17 - Fiets: 75 unique IDs gevonden
+2026-04-09 14:10:22.282 | INFO     | __main__:<module>:17 - Fabrikant: 11 unique IDs gevonden
+2026-04-09 14:10:22.289 | INFO     | __main__:<module>:6 - Klant columns in Accessoireverkoop: ['klantnr', 'naam', 'adres', 'woonplaats', 'geslacht', 'geboortedatum']
+2026-04-09 14:10:22.297 | INFO     | __main__:<module>:8 - Data preview Klant:
+   klantnr           naam           adres               woonplaats geslacht  \
+0        1     Jan Jansen   Kerkstraat 12  Gewijzigde Test Locatie        M   
+1        3  Pieter Visser   Havenstraat 3                 Den Haag        M   
+2        4      Emma Smit    Boomgaard 22                  Haarlem        V   
+3        5     Tom Bakker  Stationsweg 44                   Leiden        M   
+4        6    Lisa Meijer   Dijkstraat 10                  Zaandam        V   
+
+  geboortedatum  
+0    1985-03-22  
+1    1978-11-05  
+2    1995-02-18  
+3    1982-09-09  
+4    1993-12-30  
+2026-04-09 14:10:22.313 | SUCCESS  | __main__:<module>:21 - Stap 1: INSERT, UPDATE en DELETE succesvol uitgevoerd op de bron-database.
+2026-04-09 14:10:22.314 | INFO     | __main__:<module>:30 - Starten met Full Refresh van het SDM om wijzigingen op te halen...
+2026-04-09 14:10:22.315 | INFO     | __main__:full_refresh_sdm:93 - Start Full Refresh...
+2026-04-09 14:10:22.422 | SUCCESS  | __main__:reset_sdm:9 - Database succesvol geleegd.
+2026-04-09 14:10:22.512 | SUCCESS  | __main__:create_sdm_tables:32 - Tabellen succesvol aangemaakt in SDM.
+2026-04-09 14:10:22.519 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 100 rijen van Accessoire_Verkoop -> Accessoireverkoop
+2026-04-09 14:10:22.525 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 10 rijen van Monteur -> Accessoireverkoop_Monteur
+2026-04-09 14:10:22.532 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 5 rijen van Leverancier -> Accessoireverkoop_Leverancier
+2026-04-09 14:10:22.538 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 10 rijen van Accessoire -> Accessoireverkoop_Accessoire
+2026-04-09 14:10:22.544 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 4 rijen van Filiaal -> Accessoireverkoop_filiaal
+2026-04-09 14:10:22.546 | ERROR    | __main__:load_data_to_sdm:87 - Fout bij inladen Klant: Execution failed
+2026-04-09 14:10:22.553 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 150 rijen van Fiets_Verkoop -> Fietsverkoop
+2026-04-09 14:10:22.559 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 75 rijen van Fiets -> Fietsverkoop_Fiets
+2026-04-09 14:10:22.566 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 10 rijen van Monteur -> Fietsverkoop_Monteur
+2026-04-09 14:10:22.572 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 10 rijen van Fabrikant -> Fietsverkoop_Fabrikant
+2026-04-09 14:10:22.577 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 4 rijen van Filiaal -> Fietsverkoop_filiaal
+2026-04-09 14:10:22.584 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 25 rijen van Klant -> Fietsverkoop_klant
+2026-04-09 14:10:22.591 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 50 rijen van Onderhoud -> Onderhoud
+2026-04-09 14:10:22.597 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 30 rijen van Fiets -> Onderhoud_Fiets
+2026-04-09 14:10:22.603 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 15 rijen van Monteur -> Onderhoud_Monteur
+2026-04-09 14:10:22.609 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 11 rijen van Fabrikant -> Onderhoud_Fabrikant
+2026-04-09 14:10:22.611 | ERROR    | __main__:load_data_to_sdm:87 - Fout bij inladen Filiaal: table "Onderhoud_filiaal" already exists
+2026-04-09 14:10:22.613 | ERROR    | __main__:load_data_to_sdm:87 - Fout bij inladen Accessoire_Inkoop: table "Accessoire_inkoop" already exists
+2026-04-09 14:10:22.615 | ERROR    | __main__:load_data_to_sdm:87 - Fout bij inladen Accessoire: table "Accessoire_inkoop_Accessoire" already exists
+2026-04-09 14:10:22.616 | ERROR    | __main__:load_data_to_sdm:87 - Fout bij inladen Leverancier: table "Accessoire_inkoop_Leverancier" already exists
+2026-04-09 14:10:22.622 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 100 rijen van Fiets_Inkoop -> Fiets_Inkoop
+2026-04-09 14:10:22.629 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 75 rijen van Fiets -> Fiets_Inkoop_Fiets
+2026-04-09 14:10:22.635 | INFO     | __main__:load_data_to_sdm:84 - Geladen: 10 rijen van Fabrikant -> Fiets_Inkoop_Fabrikant
+2026-04-09 14:10:22.635 | SUCCESS  | __main__:load_data_to_sdm:89 - Data laden completed.
+2026-04-09 14:10:22.636 | SUCCESS  | __main__:full_refresh_sdm:97 - Full refresh van SDM completed.
+2026-04-09 14:10:22.636 | SUCCESS  | __main__:<module>:32 - Stap 2: SDM succesvol opnieuw opgebouwd en geladen met de nieuwste data.
+2026-04-09 14:10:22.637 | INFO     | __main__:<module>:35 - --- Test Resultaten in SDM (Tabel: Accessoireverkoop_klant) ---
+2026-04-09 14:10:22.638 | INFO     | __main__:<module>:40 - 1. INSERT test (Is de nieuwe klant 9999 aanwezig?):
+2026-04-09 14:10:22.639 | ERROR    | __main__:<module>:44 - Gefaald. Klant niet gevonden.
+2026-04-09 14:10:22.640 | INFO     | __main__:<module>:48 - 2. UPDATE test (Heeft klant 1 de nieuwe woonplaats?):
+2026-04-09 14:10:22.641 | ERROR    | __main__:<module>:52 - Gefaald. Klant 1 bestaat niet in SDM.
+2026-04-09 14:10:22.642 | INFO     | __main__:<module>:56 - 3. DELETE test (Is klant 2 succesvol verwijderd uit SDM?):
+2026-04-09 14:10:22.643 | SUCCESS  | __main__:<module>:58 - Succes! Klant 2 bestaat niet meer in het SDM.
