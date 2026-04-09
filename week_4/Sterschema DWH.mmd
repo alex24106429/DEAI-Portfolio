@@ -1,0 +1,94 @@
+erDiagram
+    %% Relaties tussen Dimensies en Feitentabel: Verkopen
+    DIM_DATUM ||--o{ FEIT_VERKOOP : "datum_id"
+    DIM_KLANT ||--o{ FEIT_VERKOOP : "klantnr"
+    DIM_MONTEUR ||--o{ FEIT_VERKOOP : "monteurnr"
+    DIM_FIETS ||--o{ FEIT_VERKOOP : "fietsnr"
+    DIM_ACCESSOIRE ||--o{ FEIT_VERKOOP : "accessoirenummer"
+
+    %% Relaties tussen Dimensies en Feitentabel: Onderhoud
+    DIM_DATUM ||--o{ FEIT_ONDERHOUD : "datum_id"
+    DIM_FIETS ||--o{ FEIT_ONDERHOUD : "fietsnr"
+    DIM_MONTEUR ||--o{ FEIT_ONDERHOUD : "monteurnr"
+
+    %% Relaties tussen Dimensies en Feitentabel: Inkoop
+    %% Inkoop gebeurt op maandniveau (maand_id), niet op dagniveau
+    DIM_DATUM ||--o{ FEIT_INKOOP : "maand_id"
+    DIM_FIETS ||--o{ FEIT_INKOOP : "fietsnr"
+    DIM_ACCESSOIRE ||--o{ FEIT_INKOOP : "accessoirenummer"
+
+    %% Dimensietabellen
+    DIM_DATUM {
+        int datum_id PK "YYYYMMDD"
+        int dag
+        int maand
+        int jaar
+        string maandnaam
+        int maand_id "YYYYMM"
+    }
+
+    DIM_KLANT {
+        int klantnr PK
+        date geboortedatum
+        string leeftijdgroep "Afgeleid: <20, 20-40, etc."
+        string overige_bron_velden "naam, adres, etc."
+    }
+
+    DIM_MONTEUR {
+        int monteurnr PK
+        float uurloon
+        string salarisgroep "Afgeleid: Senior/Medior"
+        string filiaalnaam "Gedenormaliseerd"
+        string filiaal_adres "Gedenormaliseerd"
+        string overige_bron_velden "naam, etc."
+    }
+
+    DIM_FIETS {
+        int fietsnr PK
+        float standaardprijs
+        float inkoopprijs
+        string prijsklasse "Afgeleid: Duur/Basis Segment"
+        string fabrikantnaam "Gedenormaliseerd"
+        string fabrikant_adres "Gedenormaliseerd"
+        string fabrikant_plaats "Gedenormaliseerd"
+    }
+
+    DIM_ACCESSOIRE {
+        int accessoirenr PK
+        float inkoopprijs
+        string leveranciernaam "Gedenormaliseerd"
+        string leverancier_adres "Gedenormaliseerd"
+        string leverancier_woonplaats "Gedenormaliseerd"
+    }
+
+    %% Feitentabellen
+    FEIT_VERKOOP {
+        int verkoop_id PK "Gegenereerde sleutel"
+        int datum_id FK
+        int klantnr FK
+        int monteurnr FK
+        int fietsnr FK "Kan NULL zijn"
+        int accessoirenummer FK "Kan NULL zijn"
+        float verkoopprijs
+        float omzet "Berekend"
+        float winst "Berekend"
+    }
+
+    FEIT_ONDERHOUD {
+        int onderhoud_id PK
+        int datum_id FK
+        int fietsnr FK
+        int monteurnr FK
+        string starttijd
+        string eindtijd
+        float duur "Berekend (uren)"
+    }
+
+    FEIT_INKOOP {
+        int inkoop_id PK "Gegenereerde sleutel"
+        int maand_id FK "YYYYMM"
+        int fietsnr FK "Kan NULL zijn"
+        int accessoirenummer FK "Kan NULL zijn"
+        int aantal
+        float totale_inkoopkosten "Berekend"
+    }
