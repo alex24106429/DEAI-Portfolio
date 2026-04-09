@@ -4,6 +4,15 @@
     eigen gemaakte Source Data Model van BikeToDrive (je eigen
     uitwerking van het vorige werkcollege).
 
+    Feittabel 1: Fietsverkoop
+    Omliggende dimensies: Fietsverkoop_klant, Fietsverkoop_fiets, Fietsverkoop_monteur, Fietsverkoop_filiaal, Fietsverkoop_fabrikant, Datum
+
+    Feittabel 2: Accessoireverkoop
+    Omliggende dimensies: Accessoireverkoop_klant, Accessoireverkoop_accessoire, Accessoire_Monteur, Accessoireverkoop_filiaal, Accessoireverkoop_leverancier, datum
+
+    Feittabel 3: Onderhoud
+    Omliggende dimensies: Onderhoud_fiets, Onderhoud_monteur, Onderhoud_filiaal, Onderhoud_Fabrikant, datum, starttijd, eindtijd
+
 2.  Maak een Sterschema, waarin de feiten met de meetwaarden in het
     midden staan en correct verbonden zijn met de omliggende dimensies.
     Vergeet ook de verborgen dimensies niet. Zorg er ten slotte voor dat
