@@ -4,6 +4,7 @@
         "ms-toolsai.jupyter",
         "ms-python.autopep8",
         "repreng.csv",
-        "qwtel.sqlite-viewer"
+        "qwtel.sqlite-viewer",
+        "vstirbu.vscode-mermaid-preview"
     ]
 }

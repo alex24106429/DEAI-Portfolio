@@ -1,0 +1,94 @@
+classDiagram
+    class inkoop {
+        -inkoopnr
+        -inkoopmaand
+        -inkoopjaar
+        -aantal
+    }
+    class fiets {
+        -fietsnr
+        -soort
+        -merk
+        -type
+        -omzet
+        -kleur
+        -fabrikant
+        -fabrikantnr
+        -naam
+        -adres
+        -plaats
+        -prijsklasse
+        -inkoopprijs
+        -standaardprijs
+    }
+    class klant {
+        -klantnr
+        -naam
+        -adres
+        -woonplaats
+        -geslacht
+        -leeftijdgroep
+        -geboortendatum
+    }
+    class onderhoud {
+        -onderhoudnr
+        -datum
+        -duur
+        -fiets
+        -monteur
+        -starttijd
+        -eindtijd
+    }
+    class verkoop {
+        -verkoopnr
+        -datum
+        -winst
+        -verkoopprijs
+    }
+    class monteur {
+        -monteurnr
+        -naam
+        -woonplaats
+        -salarisgroep
+        -filiaal
+        -filiaalnr
+        -filiaalnaam
+        -adres
+        -provintie
+        -uurloon
+    }
+    class accessiore {
+        -accessiorenummer
+        -naam
+        -standaardprijs
+        -inkoopprijs
+        -soort
+        -leveranciernr
+        -attribute
+        -adres
+        -woonplaats
+        -leveranciernaam
+    }
+    class date {
+        -jaar
+        -maand
+        -dag
+    }
+    class maand {
+        -maand
+        -jaar
+        -maandnaam
+    }
+
+    inkoop "0..*" -- "1" maand
+    inkoop "0..*" -- "1" accessiore
+    inkoop "0..*" -- "1" fiets
+    fiets "1" -- "0..*" verkoop
+    klant "1" -- "0..*" verkoop
+    verkoop "0..*" -- "1" accessiore
+    verkoop "0..*" -- "1" monteur
+    verkoop "0..*" -- "1" date
+    fiets "1" -- "*" onderhoud
+    onderhoud "*" -- "1" monteur
+    onderhoud "0..*" -- "1" date
+    date "0..*" -- "1" maand
