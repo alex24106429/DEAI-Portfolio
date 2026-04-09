@@ -1,0 +1,19 @@
+2026-04-09 14:17:40.817 | INFO     | __main__:<module>:5 - Stap 1: Extract - Verbinden met bron database '../week_3/DE/sdm.db'
+2026-04-09 14:17:40.825 | INFO     | __main__:<module>:1 - Ophalen Inkoop data...
+2026-04-09 14:17:40.845 | INFO     | __main__:<module>:1 - Ophalen Verkoop data...
+2026-04-09 14:17:40.869 | INFO     | __main__:<module>:1 - Ophalen Onderhoud data...
+2026-04-09 14:17:40.883 | SUCCESS  | __main__:<module>:2 - Stap 1: Extract afgerond. Data is ingeladen in werkgeheugen.
+2026-04-09 14:17:40.898 | INFO     | __main__:<module>:1 - Stap 2: Transform - Bouwen van Dimensies en Feiten...
+2026-04-09 14:17:40.910 | INFO     | __main__:<module>:13 - -> DIM_KLANT getransformeerd: 25 unieke klanten.
+2026-04-09 14:17:40.930 | INFO     | __main__:<module>:13 - -> DIM_FIETS getransformeerd: 75 unieke fietsen.
+2026-04-09 14:17:40.948 | INFO     | __main__:<module>:11 - -> DIM_ACCESSOIRE getransformeerd: 10 unieke accessoires.
+2026-04-09 14:17:40.967 | INFO     | __main__:<module>:13 - -> DIM_MONTEUR getransformeerd: 15 unieke monteurs.
+2026-04-09 14:17:41.031 | INFO     | __main__:<module>:10 - -> DIM_DATUM getransformeerd: 2192 datums gegenereerd.
+2026-04-09 14:17:41.067 | INFO     | __main__:<module>:12 - -> FEIT_INKOOP getransformeerd: 100 rijen.
+2026-04-09 14:17:41.110 | INFO     | __main__:<module>:13 - -> FEIT_VERKOOP getransformeerd: 250 rijen.
+2026-04-09 14:17:41.138 | INFO     | __main__:<module>:11 - -> FEIT_ONDERHOUD getransformeerd: 50 rijen.
+2026-04-09 14:17:41.150 | SUCCESS  | __main__:<module>:3 - Stap 2: Transform afgerond.
+2026-04-09 14:17:41.164 | INFO     | __main__:<module>:2 - Stap 3: Load - Verbinden met target DWH 'fietsen_dwh.db'...
+2026-04-09 14:17:41.166 | INFO     | __main__:<module>:12 - Laden van Dimensies (met indexering)...
+2026-04-09 14:17:41.194 | ERROR    | __main__:<module>:101 - Fout tijdens het laden van het DWH: Execution failed on sql 'DROP TABLE "DIM_DATUM"': FOREIGN KEY constraint failed
+2026-04-09 14:17:41.195 | INFO     | __main__:<module>:105 - 🏁 Database verbinding gesloten. ETL script voltooid.
